@@ -1,139 +1,204 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system for Laurence GHL — premium personal portfolio.
-   Palette: Deep Navy + Electric Blue + Warm White + Slate. */
+/* ==================================================================
+   DESIGN SYSTEM — laurencemaligaya.com
+   ------------------------------------------------------------------
+   Light "field manual" look: paper background, white cells, black
+   1px rules, one orange accent.
+   Fonts: Archivo (headlines + body) and IBM Plex Mono (labels).
+   Both are loaded in index.html.
+
+   To change the accent colour everywhere, edit --lm-accent below.
+   ================================================================== */
 
 @layer base {
   :root {
-    /* Warm soft white background */
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    /* ---- Site palette ---- */
+    --lm-accent: #ff5b1f; /* orange: buttons, badges, highlights */
 
+    /* ---- shadcn/ui tokens, mapped to the same palette ---- */
+    --background: 60 9% 92%;
+    --foreground: 0 0% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
+    --card-foreground: 0 0% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    /* Deep navy primary */
-    --primary: 222 66% 9%;
-    --primary-foreground: 210 40% 98%;
-
-    /* Electric blue accent */
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 100%;
-
-    --accent-hover: 217 91% 48%;
-
-    --secondary: 215 28% 93%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 215 28% 94%;
-    --muted-foreground: 215 16% 47%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 217 91% 60%;
-
-    --radius: 0.625rem;
-
-    --sidebar-background: 210 40% 98%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 222 66% 9%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 215 28% 93%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 214 20% 90%;
-    --sidebar-ring: 217 91% 60%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 60 9% 92%;
+    --secondary: 60 7% 88%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 60 7% 88%;
+    --muted-foreground: 60 5% 33%;
+    --accent: 16 100% 56%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 8%;
+    --input: 0 0% 8%;
+    --ring: 0 0% 8%;
+    --radius: 0px;
   }
 
-  .dark {
-    --background: 222 66% 9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 54% 12%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 54% 12%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222 47% 11%;
-
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 100%;
-
-    --secondary: 222 40% 16%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 222 40% 16%;
-    --muted-foreground: 215 20% 65%;
-
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 222 30% 20%;
-    --input: 222 30% 20%;
-    --ring: 217 91% 60%;
-
-    --sidebar-background: 222 54% 12%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 40% 16%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 20%;
-    --sidebar-ring: 217 91% 60%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    font-family:
-      "Inter",
-      system-ui,
-      -apple-system,
-      sans-serif;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  section[id] {
-    scroll-margin-top: 4rem;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-lm-paper font-sans text-lm-ink;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Leave room for the sticky header when jumping to #work, #contact… */
+  [id] {
+    scroll-margin-top: 88px;
+  }
+
+  /* Links: underlined text links with a thick, offset underline */
+  a {
+    color: inherit;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+  }
+  a:hover {
+    text-decoration-thickness: 2.5px;
+  }
+
+  :focus-visible {
+    outline: 2px solid #141414;
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--lm-accent);
+    color: #141414;
+  }
+}
+
+@layer components {
+  /* Page container: 1280px max, 20px gutters on phones, 40px from tablet up */
+  .wrap {
+    @apply mx-auto w-full max-w-[1280px] px-5 md:px-10;
+  }
+
+  /* Mono label, e.g. "JOB SUCCESS" */
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.08em] text-lm-muted;
+  }
+
+  /* Grid with black 1px rules between cells (put .cell children inside).
+     Rules are drawn as cell borders, so a short last row stays clean. */
+  .ink-grid {
+    @apply grid border-l border-t border-lm-ink;
+  }
+  .ink-grid > * {
+    @apply border-b border-r border-lm-ink;
+  }
+  .cell {
+    @apply bg-white;
+  }
+
+  /* Square button with a black border */
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center border-[1.5px] border-lm-ink bg-lm-accent px-5 text-[15px] font-bold text-lm-ink no-underline;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 3px 3px 0 #141414;
+  }
+  .btn-lg {
+    @apply min-h-[56px] px-7 text-[17px];
+  }
+  .btn-ink {
+    @apply bg-lm-ink text-lm-paper;
+  }
+  .btn-ink:hover {
+    box-shadow: 3px 3px 0 #ffffff;
+  }
+
+  /* Orange tag, e.g. "Paid client project" */
+  .badge {
+    @apply inline-block border border-lm-ink bg-lm-accent px-2 py-0.5 text-[13px] font-bold leading-normal;
+  }
+
+  /* Small square with + or an arrow */
+  .icon-box {
+    @apply flex h-[30px] w-[30px] shrink-0 items-center justify-center border-[1.5px] border-lm-ink text-base;
+    transition: background-color 0.15s ease;
+  }
+
+  .stars {
+    color: var(--lm-accent);
+    -webkit-text-stroke: 0.5px #141414;
+    letter-spacing: 0.08em;
+  }
+
+  /* Big condensed section heading */
+  .h-section {
+    @apply m-0 font-extrabold;
+    font-stretch: 74%;
+    font-size: clamp(42px, 5vw, 80px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  /* Hatched placeholder, shown if an image fails to load */
+  .ph {
+    background-color: #e2e2dc;
+    background-image: repeating-linear-gradient(135deg, rgba(20, 20, 20, 0.045) 0 8px, transparent 8px 16px);
+  }
+
+  /* Dotted grid behind workflow diagrams */
+  .dots {
+    background-image: radial-gradient(#d2d2cb 1px, transparent 1.2px);
+    background-size: 16px 16px;
   }
 }
 
 @layer utilities {
+  /* Archivo is a variable font: these narrow it for headlines */
+  .stretch-68 {
+    font-stretch: 68%;
+  }
+  .stretch-70 {
+    font-stretch: 70%;
+  }
+  .stretch-72 {
+    font-stretch: 72%;
+  }
+  .stretch-74 {
+    font-stretch: 74%;
+  }
+  .stretch-75 {
+    font-stretch: 75%;
+  }
+  .stretch-78 {
+    font-stretch: 78%;
+  }
+  .stretch-80 {
+    font-stretch: 80%;
+  }
+  .stretch-85 {
+    font-stretch: 85%;
+  }
   .text-balance {
     text-wrap: balance;
-  }
-
-  .section-label {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent;
-  }
-
-  .scrollbar-none {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
   }
 }

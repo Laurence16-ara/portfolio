@@ -13,7 +13,22 @@ export default {
       },
     },
     extend: {
+      /* Site fonts (loaded in index.html) */
+      fontFamily: {
+        sans: ["Archivo", "Helvetica Neue", "Arial", "sans-serif"],
+        mono: ['"IBM Plex Mono"', "ui-monospace", "Menlo", "monospace"],
+      },
       colors: {
+        /* Site palette. Change the orange in src/index.css (--lm-accent). */
+        lm: {
+          ink: "#141414",
+          paper: "#EDEDE8",
+          rule: "#CACAC2",
+          muted: "#57574F",
+          body: "#2C2C28",
+          live: "#22A55E",
+          accent: "var(--lm-accent)",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
