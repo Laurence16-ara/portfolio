@@ -188,6 +188,11 @@ export const REVIEWS = {
       rating: 5,
     },
     {
+      text: "Was able to produce a great website even with my less than perfect guidance. Really able to look at the big picture!",
+      source: "Desert Flour Desserts · Website design & build",
+      rating: 5,
+    },
+    {
       text: "I'm very satisfied with Laurence's work. He was thorough, detail-oriented, and professional throughout the entire process. He identified issues that had been overlooked, fixed them carefully, and provided clear documentation…",
       source: "The French Perspective · GHL funnel QA audit",
       rating: 5,
@@ -321,7 +326,8 @@ export const PROJECTS: Project[] = [
       { label: "Client", value: "Desert Flour Desserts" },
       { label: "Scope", value: "Full design + build" },
       { label: "Pages", value: "Home · Custom Order · Thank You" },
-      { label: "Key feature", value: "Custom order form" },
+      { label: "Period", value: "Sep – Oct 2026" },
+      { label: "Rating", value: "5.0", stars: true },
       { label: "Platform", value: "GoHighLevel" },
     ],
     caseSpecs: [
@@ -329,6 +335,8 @@ export const PROJECTS: Project[] = [
       { label: "Pages", value: "Home · Custom Order · Thank You" },
       { label: "Key feature", value: "Custom order form" },
       { label: "Process", value: "Mockups approved, then built" },
+      { label: "Period", value: "Sep – Oct 2026" },
+      { label: "Rating", value: "5.0", stars: true },
     ],
     orderForm: {
       title: "One form for every kind of order.",
@@ -351,6 +359,13 @@ export const PROJECTS: Project[] = [
         { title: "Launch", text: "Live on the client's site." },
       ],
     },
+    quotes: [
+      {
+        text: "Was able to produce a great website even with my less than perfect guidance. Really able to look at the big picture!",
+        source: "Desert Flour Desserts · Website design & build",
+        rating: 5,
+      },
+    ],
     ctaLine: "Need a website that takes orders?",
   },
   {

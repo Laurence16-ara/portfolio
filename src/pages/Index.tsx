@@ -395,17 +395,15 @@ function Reviews() {
         <h2 id="reviews-title" className="label m-0 text-[10.5px] md:text-[11.5px]">
           {SECTIONS.reviewsGhl}
         </h2>
-        <div
-          className="grid gap-x-14 gap-y-10"
-          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(440px, 100%), 1fr))" }}
-        >
+        {/* one column on phones and tablets, three side by side on desktop */}
+        <div className="grid gap-y-10 lg:grid-cols-3 lg:gap-x-10 xl:gap-x-14">
           {REVIEWS.ghl.map((r) => (
             <figure key={r.source} className="flex flex-col gap-4 md:gap-[18px]">
               <span className="flex items-center gap-2.5 font-mono text-xs font-semibold">
                 <Stars className="text-[17px]" />
                 {r.rating.toFixed(1)}
               </span>
-              <blockquote className="stretch-80 m-0 text-[24px] font-bold leading-[1.08] tracking-[-0.01em] md:text-[30px]">
+              <blockquote className="stretch-80 m-0 max-w-[760px] text-[24px] font-bold leading-[1.08] tracking-[-0.01em] md:text-[30px] lg:text-[24px] xl:text-[27px]">
                 “{r.text}”
               </blockquote>
               <figcaption className="font-mono text-[10.5px] uppercase text-lm-muted md:text-[11.5px]">

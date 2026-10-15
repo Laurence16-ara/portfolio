@@ -245,7 +245,7 @@ function Quotes({ p }: { p: Project }) {
                   {q.rating.toFixed(1)}
                 </span>
               )}
-              <blockquote className="stretch-80 m-0 text-[24px] font-bold leading-[1.08] tracking-[-0.01em] md:text-[30px]">
+              <blockquote className="stretch-80 m-0 max-w-[760px] text-[24px] font-bold leading-[1.08] tracking-[-0.01em] md:text-[30px]">
                 “{q.text}”
               </blockquote>
               <figcaption className="font-mono text-[11px] uppercase text-lm-muted md:text-[11.5px]">
